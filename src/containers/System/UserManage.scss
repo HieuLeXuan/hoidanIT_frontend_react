@@ -1,0 +1,21 @@
+.user-actions {
+    cursor: pointer;
+
+    .fa-edit {
+        margin-right: 10px;
+
+        &:hover {
+            padding: 2px;
+            border-radius: 50%;
+            background-color: lightblue;
+        }
+    }
+
+    .fa-trash {
+        &:hover {
+            padding: 2px;
+            border-radius: 50%;
+            background-color: lightblue;
+        }
+    }
+}
