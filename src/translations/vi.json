@@ -1,4 +1,15 @@
 {
+    "header": {
+        "at-home": "Tại nhà",
+        "at-hospital": "Tại bệnh viện",
+        "live-strong": "Sống khoẻ",
+        "no-think": "Chưa nghĩ ra"
+    },
+    "banner": {
+        "communication": "Nền tảng y tế",
+        "health-care": "Chăm sóc sức khoẻ",
+        "specialist-examination": "Khám chuyên khoa"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",

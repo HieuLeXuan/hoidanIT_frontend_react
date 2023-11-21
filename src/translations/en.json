@@ -1,4 +1,15 @@
 {
+    "header": {
+        "at-home": "At home",
+        "at-hospital": "At hospital",
+        "live-strong": "Live strong",
+        "no-think": "No think"
+    },
+    "banner": {
+        "communication": "Communication",
+        "health-care": "Health care",
+        "specialist-examination": "Specialist examination"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",

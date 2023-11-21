@@ -36,7 +36,28 @@ class UserModal extends Component {
         })
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        // Check if props.currentUser has changed
+        if (nextProps.currentUser !== prevState.prevCurrentUser) {
+            // If changed, update the state with new values
+            return {
+                firstName: nextProps.currentUser.firstName,
+                lastName: nextProps.currentUser.lastName,
+                email: nextProps.currentUser.email,
+                password: nextProps.currentUser.password,
+                address: nextProps.currentUser.address,
+                gender: nextProps.currentUser.gender,
+                role: nextProps.currentUser.role,
+                prevCurrentUser: nextProps.currentUser // Update a flag to track changes
+            };
+        }
+
+        // If no changes, return null
+        return null;
+    }
+
     componentDidMount() {
+        // console.log('>>> current user: ', this.props.currentUser);
     }
 
     handleOnChange = (e, id) => {
@@ -64,10 +85,18 @@ class UserModal extends Component {
     }
 
     handleSubmit = (e) => {
+        console.log('>>> current user: ', this.props.currentUser);
+        console.log('>>> current user status: ', Object.keys(this.props.currentUser).length);
         if (this.isValidInput()) {
-            this.setState({ validated: false });
-            this.props.addNewUser(this.state);
-            this.refresh();
+            if (Object.keys(this.props.currentUser).length === 0) {
+                this.setState({ validated: false });
+                this.props.addNewUser(this.state);
+                this.refresh();
+            } else {
+                this.setState({ validated: false });
+                this.props.editUser(this.state);
+                this.refresh();
+            }
         }
     }
 

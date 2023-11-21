@@ -1,0 +1,165 @@
+.home-header-container {
+    height: 78px;
+    margin: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: lightblue;
+
+    .home-header-content {
+        width: 100%;
+        height: 100%;
+        display: flex;    
+
+        .left-content {
+            height: 100%;
+            width: 25%;
+            display: flex;
+            align-items: center;
+
+            .header-bars {
+                width: 20%;
+                height: 40%;
+                background: url("../../assets/images/bars-19.svg") center center no-repeat;
+            }
+
+            .header-logo {
+                width: 55%;
+                height: 100%;
+                background: url("../../assets/images/booking-ar21.svg") center center no-repeat;
+            }
+        }
+
+        .center-content {
+            width: 55%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 1.25rem;
+        }
+
+        .right-content {
+            width: 20%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .apointerment {
+                width: 20%;
+                height: 50%;
+                background: url("../../assets/images/apointerment-icon.svg") center center no-repeat;
+            }
+
+            .support {
+                width: 20%;
+                height: 50%;
+                background: url("../../assets/images/support-icon.svg") center center no-repeat;
+            }
+        }
+    }
+}
+
+.home-header-banner {
+
+    .banner-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/images/bookingcare-cover-4.1.jpg");
+        height: 500px;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+      
+      .banner-up {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+
+      .input-box {
+        position: relative;
+        height: 40px;
+        max-width: 900px;
+        width: 50%;
+        background: #fff;
+        margin: 0 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+        i, .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          i {
+            left: 20px;
+            font-size: 30px;
+            color: #707070;
+          }
+
+          input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            font-size: 18px;
+            font-weight: 400;
+            border: none;
+            padding: 0 155px 0 65px;
+            background-color: transparent;
+          }
+          .button {
+            right: 20px;
+            font-size: 15px;
+            font-weight: 400;
+            color: #fff;
+            border: none;
+            padding: 6px 30px;
+            border-radius: 6px;
+            background-color: #4070f4;
+            cursor: pointer;
+
+            &:active {
+                transform: translateY(-50%) scale(0.98);
+              }
+          }
+      }
+
+      .banner-down {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .services {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .icon {
+                width: 50px;
+                height: 50px;
+                font-size: 35px;
+                background-color: white;
+                border-radius: 50%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            span {
+                color: white;
+            }
+        }
+      }
+}
+
+

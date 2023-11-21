@@ -23,6 +23,7 @@ class UserManage extends Component {
         this.state = {
             modalShow: false,
             arrUser: [],
+            currentUser: {}
         }
     }
 
@@ -58,8 +59,38 @@ class UserManage extends Component {
         }
     }
 
+    async editUser(data, id) {
+        try {
+            let response = await authService.editUserService(data, id);
+
+            if (response.errorCode === 0) {
+                this.getUsers('All')
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     handleAddNewUser = (user) => {
         this.createUser(user);
+        this.setState({ modalShow: false });
+    }
+
+    handleOpenModal = (user) => {
+        console.log('>>>', user);
+        this.setState({ modalShow: true });
+        this.setState({ currentUser: user });
+    }
+
+    handleEditUser = (user) => {
+        console.log(user);
+        this.editUser(
+            {
+                firstName: user.firstName,
+                lastName: user.lastName,
+                address: user.address,
+            },
+            user.prevCurrentUser.id);
         this.setState({ modalShow: false });
     }
 
@@ -84,7 +115,7 @@ class UserManage extends Component {
                     <Button
                         className='px-2'
                         variant="primary"
-                        onClick={() => this.setState({ modalShow: true })}>
+                        onClick={() => this.handleOpenModal({})}>
                         <i className="fas fa-plus"></i>
                         Add new user
                     </Button>
@@ -92,7 +123,9 @@ class UserManage extends Component {
                     <ModalUser
                         show={this.state.modalShow}
                         onHide={() => this.setState({ modalShow: false })}
+                        currentUser={this.state.currentUser}
                         addNewUser={this.handleAddNewUser}
+                        editUser={this.handleEditUser}
                     />
                 </div>
                 <table className="table">
@@ -118,7 +151,10 @@ class UserManage extends Component {
                                             <td>{user.lastName}</td>
                                             <td>{user.address}</td>
                                             <td className='user-actions'>
-                                                <i className='fas fa-edit'></i>
+                                                <i
+                                                    className='fas fa-edit'
+                                                    onClick={() => this.handleOpenModal(user)}
+                                                ></i>
                                                 <i
                                                     className="fas fa-trash"
                                                     onClick={() => this.handleDeleUser(user.id)}
